@@ -1,5 +1,5 @@
 let poem_dic = {
-    'One':[4, 25, 65],
+    'One':[4, 9, 21, 75, 126],
     'Two':[3, 178, 360]
 };
 
@@ -37,6 +37,7 @@ function addPoem(id) {
             word.classList.add('on');
         };
     };
+    clearSelection();
 };
 
 let poems = document.getElementsByClassName('button');
@@ -46,3 +47,18 @@ for (let i = 0; i < poems.length; i++) {
     poem.addEventListener('click', function() {replacePoem(id, poem)});
     poem.addEventListener('dblclick', function() {addPoem(id)});
 };
+
+function openAbout() {
+    document.getElementById('more').removeEventListener('click', openAbout);
+    document.getElementById('more').addEventListener('click', closeAbout);
+    document.getElementById('about').classList.remove('closed');
+    window.scrollTo(0,document.body.scrollHeight);
+};
+
+function closeAbout() {
+    document.getElementById('more').removeEventListener('click', closeAbout);
+    document.getElementById('more').addEventListener('click', openAbout);
+    document.getElementById('about').classList.add('closed');
+};
+
+document.getElementById('more').addEventListener('click', openAbout);

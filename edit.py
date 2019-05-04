@@ -18,8 +18,16 @@ for word in t:
         out.append('<div class="linebreak"></div>')
         out.append('<div class="linebreak"></div>')
     else:
-        out.append('<div class="word off" id="' + str(count) + '">' + word + '</div>')
+        this_count = count
         count += 1
+        s = ''
+        for letter in word:
+            if letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'":
+                s += letter
+            else:
+                s += '<span class="word off" id="' + str(count) + '">' + letter + '</span>'
+                count += 1
+        out.append('<span class="word off" id="' + str(this_count) + '">' + s + '</span>')
 
 for i in out:
     print(i)
