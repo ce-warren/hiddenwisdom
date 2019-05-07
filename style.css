@@ -22,13 +22,28 @@ body {
     user-select: none;
 }
 
-.on {
+.on{
     color: #222222;
+    visibility: visible;
 }
 
 .off {
-    visibility: hidden
+    visibility: hidden;
+    color: #aaaaaa;
 }
+
+/* .off {
+    display: none;
+    color: #aaaaaa;
+} */
+
+.linebreak {
+    height: .5em;
+}
+
+/* .linebreak {
+    display: none;
+} */
 
 #buttons {
     margin: 3em;
