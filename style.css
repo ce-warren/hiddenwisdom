@@ -20,30 +20,45 @@ body {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    text-decoration: underline;
+    text-decoration-color: #cccccc;
+    text-decoration-skip: none;
 }
 
 .on{
-    color: #222222;
+    color: #000000;
+    visibility: visible;
+}
+
+.fade1 {
+    color: #444444;
+    visibility: visible;
+}
+
+.fade2 {
+    color: #888888;
+    visibility: visible;
+}
+
+.fade3 {
+    color: #aaaaaa;
+    visibility: visible;
+}
+
+.fade4 {
+    color: #dddddd;
     visibility: visible;
 }
 
 .off {
-    visibility: hidden;
-    color: #aaaaaa;
+    /* visibility: hidden; */
+    /* color: #aaaaaa; */
+    color: white;
 }
 
 .linebreak {
     height: .5em;
 }
-
-/* .off {
-    display: none;
-    color: #aaaaaa;
-}
-
-.linebreak {
-    display: none;
-} */
 
 #buttons {
     margin: 3em;
@@ -58,6 +73,10 @@ body {
     padding: .5em;
     margin: .3em;
     color: #cccccc;
+}
+
+.selected {
+    background-color: #ad0f0f;
 }
 
 .button:hover {

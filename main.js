@@ -7,7 +7,47 @@ let poem_dic = {
     "Stay Instead": [33, 100, 115, 185, 296, 310, 358, 368, 418, 439, 455, 504, 511, 529, 552, 579, 620, 648, 681, 694, 724, 794, 866, 874, 879]
 };
 
+let len = 891;
 let clicks = 0;
+
+// function replacePoem(id) {
+//     clicks ++;
+//     setTimeout( function() {
+//         clicks ++;
+//     }, 500);
+//     setTimeout( function() {
+//         if (clicks % 2 != 0) {
+//             for (let poem in poem_dic) {
+//                 document.getElementById(poem).classList.remove('selected');
+//             };
+//             document.getElementById(id).classList.add('selected');
+//             let words = document.getElementsByClassName('word');
+//             for (let i = 0; i < words.length; i++) {
+//                 let word = words[i];
+//                 if (word.classList.contains('on')) {
+//                     word.classList.remove('on');
+//                     word.classList.add('off');
+//                 };
+//             };
+//             for (let num of poem_dic[id]) {
+//                 let word = document.getElementById(num.toString());
+//                 word.classList.remove('off');
+//                 word.classList.add('on');
+//             };
+//         };
+//     }, 200);
+// };
+
+// function addPoem(id) {
+//     document.getElementById(id).classList.add('selected');
+//     for (let num of poem_dic[id]) {
+//         let word = document.getElementById(num.toString());
+//         if (word.classList.contains('off')) {
+//             word.classList.remove('off');
+//             word.classList.add('on');
+//         };
+//     };
+// };
 
 function replacePoem(id) {
     clicks ++;
@@ -16,11 +56,31 @@ function replacePoem(id) {
     }, 500);
     setTimeout( function() {
         if (clicks % 2 != 0) {
+            for (let poem in poem_dic) {
+                document.getElementById(poem).classList.remove('selected');
+            };
+            document.getElementById(id).classList.add('selected');
             let words = document.getElementsByClassName('word');
             for (let i = 0; i < words.length; i++) {
                 let word = words[i];
                 if (word.classList.contains('on')) {
                     word.classList.remove('on');
+                    word.classList.add('off');
+                };
+                if (word.classList.contains('fade1')) {
+                    word.classList.remove('fade1');
+                    word.classList.add('off');
+                };
+                if (word.classList.contains('fade2')) {
+                    word.classList.remove('fade2');
+                    word.classList.add('off');
+                };
+                if (word.classList.contains('fade3')) {
+                    word.classList.remove('fade3');
+                    word.classList.add('off');
+                };
+                if (word.classList.contains('fade4')) {
+                    word.classList.remove('fade4');
                     word.classList.add('off');
                 };
             };
@@ -34,11 +94,52 @@ function replacePoem(id) {
 };
 
 function addPoem(id) {
-    for (let num of poem_dic[id]) {
-        let word = document.getElementById(num.toString());
-        if (word.classList.contains('off')) {
-            word.classList.remove('off');
-            word.classList.add('on');
+    document.getElementById(id).classList.add('selected');
+    for (let i = 1; i <= len; i ++) {
+        let word = document.getElementById(i.toString());
+        if (poem_dic[id].includes(i)) {
+            if (word.classList.contains('off')) {
+                word.classList.remove('off');
+                word.classList.add('on');
+            }
+            else if (word.classList.contains('fade1')) {
+                word.classList.remove('fade1');
+                word.classList.add('on');
+            }
+            else if (word.classList.contains('fade2')) {
+                word.classList.remove('fade2');
+                word.classList.add('on');
+            }
+            else if (word.classList.contains('fade3')) {
+                word.classList.remove('fade3');
+                word.classList.add('on');
+            }
+            else if (word.classList.contains('fade4')) {
+                word.classList.remove('fade4');
+                word.classList.add('on');
+            }
+        }
+        else {
+            if (word.classList.contains('fade4')) {
+                word.classList.remove('fade4');
+                word.classList.add('off');
+            }
+            else if (word.classList.contains('fade3')) {
+                word.classList.remove('fade3');
+                word.classList.add('fade4');
+            }
+            else if (word.classList.contains('fade2')) {
+                word.classList.remove('fade2');
+                word.classList.add('fade3');
+            }
+            else if (word.classList.contains('fade1')) {
+                word.classList.remove('fade1');
+                word.classList.add('fade2');
+            }
+            else if (word.classList.contains('on')) {
+                word.classList.remove('on');
+                word.classList.add('fade1');
+            };
         };
     };
 };
@@ -59,8 +160,6 @@ function closeAbout() {
 document.getElementById('more').addEventListener('click', openAbout);
 
 for (let poem in poem_dic) {
-    console.log(poem)
-    console.log(poem_dic[poem])
     let p = document.createElement('div');
     p.classList.add('button');
     p.id = poem;
