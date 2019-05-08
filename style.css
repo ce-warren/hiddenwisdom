@@ -28,7 +28,7 @@ body {
 }
 
 .off {
-    /* visibility: hidden; */
+    visibility: hidden;
     color: #aaaaaa;
 }
 
