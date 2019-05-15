@@ -53,8 +53,8 @@ body {
 
 .off {
     /* visibility: hidden; */
-    color: #aaaaaa;
-    /* color: white; */
+    /* color: #aaaaaa; */
+    color: white;
 }
 
 .linebreak {
