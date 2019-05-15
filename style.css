@@ -23,6 +23,7 @@ body {
     text-decoration: underline;
     text-decoration-color: #cccccc;
     text-decoration-skip: none;
+    text-align: justify;
 }
 
 .on{
@@ -31,7 +32,7 @@ body {
 }
 
 .fade1 {
-    color: #444444;
+    color: #555555;
     visibility: visible;
 }
 
@@ -52,8 +53,8 @@ body {
 
 .off {
     /* visibility: hidden; */
-    /* color: #aaaaaa; */
-    color: white;
+    color: #aaaaaa;
+    /* color: white; */
 }
 
 .linebreak {
